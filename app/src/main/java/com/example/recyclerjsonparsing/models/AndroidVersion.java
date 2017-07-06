@@ -1,17 +1,19 @@
 package com.example.recyclerjsonparsing.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Sak on 05-Jul-17.
  */
 
-public class AndroidVersion {
+public class AndroidVersion implements Serializable {
 
-    private String version;
+    private String ver;
     private String name;
     private String api;
 
     public String getVersion() {
-        return version;
+        return ver;
     }
 
     public String getName() {

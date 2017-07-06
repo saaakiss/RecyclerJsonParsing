@@ -40,17 +40,16 @@ public class AndroidVersionsPresenter implements AndroidVersionContract.Actions 
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
         Call<JSONResponse> call = requestInterface.getJSON();
         call.enqueue(new Callback<JSONResponse>() {
+
             @Override
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
                 JSONResponse jsonResponse = response.body();
-
                 parseJSONResponse(jsonResponse);
             }
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable t) {
                 mView.showError();
-                Log.d("Error",t.getMessage());
             }
         });
     }
@@ -60,6 +59,5 @@ public class AndroidVersionsPresenter implements AndroidVersionContract.Actions 
         data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
         mView.showAndroidVersion(data);
     }
-
 
 }

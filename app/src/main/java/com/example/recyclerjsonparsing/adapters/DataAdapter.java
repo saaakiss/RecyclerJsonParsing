@@ -7,9 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.recyclerjsonparsing.R;
+import com.example.recyclerjsonparsing.interfaces.RecyclerClickListener;
 import com.example.recyclerjsonparsing.models.AndroidVersion;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Sak on 06-Jul-17.
@@ -17,10 +22,12 @@ import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
-    ArrayList<AndroidVersion> android;
+    private List<AndroidVersion> android;
+    private RecyclerClickListener recyclerClickListener;
 
-    public DataAdapter(ArrayList<AndroidVersion> android){
+    public DataAdapter(List<AndroidVersion> android, RecyclerClickListener recyclerClickListener){
         this.android = android;
+        this.recyclerClickListener = recyclerClickListener;
     }
 
 
@@ -43,19 +50,28 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         return android.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-
+        @BindView(R.id.tv_name)
         TextView txtViewName;
+
+        @BindView(R.id.tv_version)
         TextView txtViewVersion;
+
+        @BindView(R.id.tv_api_level)
         TextView txtViewAPILevel;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtViewName = (TextView) itemView.findViewById(R.id.tv_name);
-            txtViewVersion = (TextView) itemView.findViewById(R.id.tv_version);
-            txtViewAPILevel = (TextView) itemView.findViewById(R.id.tv_api_level);
+            ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recyclerClickListener.onItemClicked(android.get(getLayoutPosition()));
+                }
+            });
 
         }
     }
