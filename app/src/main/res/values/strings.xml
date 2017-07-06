@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">"RecyclerJsonParsing "</string>
+    <string name="navBarText">"Android versions"</string>
 </resources>

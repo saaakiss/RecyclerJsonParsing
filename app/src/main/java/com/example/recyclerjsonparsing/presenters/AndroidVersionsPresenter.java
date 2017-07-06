@@ -49,6 +49,7 @@ public class AndroidVersionsPresenter implements AndroidVersionContract.Actions 
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable t) {
+                mView.showError();
                 Log.d("Error",t.getMessage());
             }
         });
