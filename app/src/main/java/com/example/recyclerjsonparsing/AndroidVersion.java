@@ -6,12 +6,12 @@ package com.example.recyclerjsonparsing;
 
 public class AndroidVersion {
 
-    private String version;
+    private String ver;
     private String name;
     private String api;
 
     public String getVersion() {
-        return version;
+        return ver;
     }
 
     public String getName() {
