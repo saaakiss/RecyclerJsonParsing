@@ -1,4 +1,4 @@
-package com.example.recyclerjsonparsing;
+package com.example.recyclerjsonparsing.models;
 
 /**
  * Created by Sak on 05-Jul-17.

@@ -1,4 +1,6 @@
-package com.example.recyclerjsonparsing;
+package com.example.recyclerjsonparsing.models;
+
+import com.example.recyclerjsonparsing.models.AndroidVersion;
 
 /**
  * Created by Sak on 05-Jul-17.

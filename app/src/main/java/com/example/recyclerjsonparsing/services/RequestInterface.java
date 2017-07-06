@@ -1,4 +1,6 @@
-package com.example.recyclerjsonparsing;
+package com.example.recyclerjsonparsing.services;
+
+import com.example.recyclerjsonparsing.models.JSONResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
